@@ -1,4 +1,5 @@
 using ContosoPizza.Data;
+using ContosoPizza.Pages;
 using ContosoPizza.Services;
 
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddScoped<PizzaService>();
+builder.Services.AddScoped<PizzaAddModel>();
+
 builder.Services.AddDbContext<PizzaContext>(options =>
     options.UseSqlite("Data Source=ContosoPizza.db"));
 
